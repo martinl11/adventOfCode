@@ -9,28 +9,28 @@ public class Puzzle1 {
     private static String EAST = "e";
     private static String WEST = "w";
 
-    private static Map<String, String> leftSwitch = new HashMap<String, String>() {{
+    private static Map<String, String> leftSwitch = new HashMap<>() {{
         put(NORTH, WEST);
         put(SOUTH, EAST);
         put(EAST, NORTH);
         put(WEST, SOUTH);
     }};
 
-    private static Map<String, String> rightSwitch = new HashMap<String, String>() {{
+    private static Map<String, String> rightSwitch = new HashMap<>() {{
         put(NORTH, EAST);
         put(SOUTH, WEST);
         put(EAST, SOUTH);
         put(WEST, NORTH);
     }};
 
-    private static Map<String, int[]> leftFactor = new HashMap<String, int[]>() {{
+    private static Map<String, int[]> leftFactor = new HashMap<>() {{
         put(NORTH, new int[]{-1, 0});
         put(SOUTH, new int[]{1, 0});
         put(EAST, new int[]{0, 1});
         put(WEST, new int[]{0, -1});
     }};
 
-    private static Map<String, int[]> rightFactor = new HashMap<String, int[]>() {{
+    private static Map<String, int[]> rightFactor = new HashMap<>() {{
         put(NORTH, new int[]{1, 0});
         put(SOUTH, new int[]{-1, 0});
         put(EAST, new int[]{0, -1});
@@ -44,7 +44,7 @@ public class Puzzle1 {
 
     public static void run(String input) {
 
-        List<String> instructions = new ArrayList<String>();
+        List<String> instructions = new ArrayList<>();
         String curDirection = NORTH;
         Point initPoint = new Point(0,0);
         Point curPoint = new Point(0,0);
@@ -65,7 +65,7 @@ public class Puzzle1 {
         // Taxicab formula d(AB)= (y2 - y1) + (x2 - x1);
         // In this case x1 = 0 ; y1 = 0
 
-        int distance = (curPoint.y - initPoint.y) + (curPoint.x - initPoint.x);
+        int distance = Math.abs(curPoint.y - initPoint.y) + Math.abs(curPoint.x - initPoint.x);
 
         System.out.println("distance: " + distance);
     }

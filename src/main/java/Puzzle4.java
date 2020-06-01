@@ -8,14 +8,10 @@ public class Puzzle4 {
 
     private static String NORTH_POLE = "northpoleobjectstorage";
 
-    public static void main(String[] args) {
-        run(Puzzle4Test.inputLvl2);
-    }
-
-    public static void run(String input) {
+    public static int[] run(String input) {
 
         Map<String, Integer> letters = new HashMap<>();
-        int res = 0;
+        int ids = 0;
         int northPoleId = 0;
 
         String[] lines = input.split("\n");
@@ -43,7 +39,7 @@ public class Puzzle4 {
                 String commonLetters = commonLetters(letters);
 
                 if (commonLetters.equals(checksum)) {
-                    res += Integer.parseInt(sector);
+                    ids += Integer.parseInt(sector);
 
                     // No need to rotate to full id, just rotate to modulo 26
                     int rotation = Integer.parseInt(sector) % 26;
@@ -71,8 +67,10 @@ public class Puzzle4 {
             letters.clear();
         }
 
-        System.out.println("The sum of the sector IDs: " + res);
+        System.out.println("The sum of the sector IDs: " + ids);
         System.out.println("The sector ID of North Pole: " + northPoleId);
+
+        return new int[]{ids, northPoleId};
     }
 
     private static String commonLetters(Map<String, Integer> letters) {

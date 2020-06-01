@@ -1,4 +1,4 @@
-public class Puzzle4Test {
+public class Puzzle4Testcase {
     static String inputLvl2 = "aczupnetwp-dnlgpyrpc-sfye-dstaatyr-561[patyc]\n" +
             "jsehsyafy-vqw-ljsafafy-866[nymla]\n" +
             "tyepcyletzylw-ncjzrpytn-prr-opawzjxpye-743[cnrdl]\n" +

@@ -1,6 +1,6 @@
-public class Puzzle10Test {
+public class Puzzle10Testcase {
 
-    static String input = "bot 76 gives low to bot 191 and high to bot 21\n" +
+    static String inputLvl2 = "bot 76 gives low to bot 191 and high to bot 21\n" +
             "bot 193 gives low to bot 118 and high to bot 145\n" +
             "bot 173 gives low to bot 91 and high to bot 36\n" +
             "value 23 goes to bot 68\n" +

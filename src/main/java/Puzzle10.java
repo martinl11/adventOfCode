@@ -9,12 +9,9 @@ public class Puzzle10 {
     private static String VALUE_PATTERN = "value (\\d+) goes to bot (\\d+)";
     private static String BOT_PATTERN = "bot (?<bot>\\d+) gives (low|high) to (bot (?<lowBot>\\d+)|output (?<lowOutput>\\d+)) and (low|high) to (bot (?<highBot>\\d+)|output (?<highOutput>\\d+))";
 
-    public static void main(String[] args) {
-        String input = Puzzle10Test.input;
-        run(input);
-    }
+    private static int finalReceiverBotId = -1;
 
-    public static void run(String input) {
+    public static int[] run(String input) {
 
         Map<Integer, Bot> bots = new HashMap<>();
         Map<Integer, Integer> outputs = new HashMap<>();
@@ -57,7 +54,21 @@ public class Puzzle10 {
             }
         }
 
-        System.out.println("Multiply Together the Values is: " + outputs.get(0)*outputs.get(1)*outputs.get(2));
+        int multiplyProduct = -1;
+
+        if(outputs.get(0) != null && outputs.get(1) != null && outputs.get(2) != null) {
+            multiplyProduct = outputs.get(0)*outputs.get(1)*outputs.get(2);
+        }
+
+        System.out.println("The Number of Bot with (61, 17): " + finalReceiverBotId);
+        System.out.println("Multiply Together the Values is: " + multiplyProduct);
+
+        int[] res = new int[]{finalReceiverBotId, multiplyProduct};
+
+        // reset init value
+        finalReceiverBotId = -1;
+
+        return res;
     }
 
     private static void processInstruction(Map<Integer, Bot> bots, Map<Integer, Integer> outputs, Bot bot) {
@@ -138,7 +149,7 @@ public class Puzzle10 {
             bot.receiveChip(value);
 
             if(bot.getLow() == 17 && bot.getHigh() == 61){
-                System.out.println("The Number of Bot with (61, 17): " + receiverBotId);
+                finalReceiverBotId = receiverBotId;
             }
 
             if(bot.getInstruction() != null && bot.getLow() > 0 && bot.getHigh() > 0){

@@ -9,28 +9,28 @@ public class Puzzle1 {
     private static String EAST = "e";
     private static String WEST = "w";
 
-    private static Map<String, String> leftSwitch = new HashMap<>() {{
+    private static Map<String, String> leftSwitch = new HashMap<String, String>() {{
         put(NORTH, WEST);
         put(SOUTH, EAST);
         put(EAST, NORTH);
         put(WEST, SOUTH);
     }};
 
-    private static Map<String, String> rightSwitch = new HashMap<>() {{
+    private static Map<String, String> rightSwitch = new HashMap<String, String>() {{
         put(NORTH, EAST);
         put(SOUTH, WEST);
         put(EAST, SOUTH);
         put(WEST, NORTH);
     }};
 
-    private static Map<String, int[]> leftFactor = new HashMap<>() {{
+    private static Map<String, int[]> leftFactor = new HashMap<String, int[]>() {{
         put(NORTH, new int[]{-1, 0});
         put(SOUTH, new int[]{1, 0});
         put(EAST, new int[]{0, 1});
         put(WEST, new int[]{0, -1});
     }};
 
-    private static Map<String, int[]> rightFactor = new HashMap<>() {{
+    private static Map<String, int[]> rightFactor = new HashMap<String, int[]>() {{
         put(NORTH, new int[]{1, 0});
         put(SOUTH, new int[]{-1, 0});
         put(EAST, new int[]{0, -1});

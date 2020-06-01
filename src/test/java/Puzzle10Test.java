@@ -4,11 +4,15 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(JUnitQuickcheck.class)
-public class Puzzle10Testing {
+public class Puzzle10Test {
 
     @Test
     public void testSuccess() {
         String input = Puzzle10Testcase.inputLvl2;
+
+        System.out.println("---------------------------");
+        System.out.println("Test: default testing");
+        System.out.println("---------------------------");
 
         int[] res = Puzzle10.run(input);
         int[] expected = new int[]{118, 143153};
@@ -25,6 +29,10 @@ public class Puzzle10Testing {
                 "bot 4 gives low to output 2 and high to output 0\n" +
                 "value 17 goes to bot 2";
 
+        System.out.println("---------------------------");
+        System.out.println("Test: simple testing");
+        System.out.println("---------------------------");
+
         int[] res = Puzzle10.run(input);
         int[] expected = new int[]{4, 3111};
 
@@ -35,6 +43,10 @@ public class Puzzle10Testing {
     public void testFail() {
         String input = "bot 76 gives low to bot 191 and high to bot 21";
 
+        System.out.println("---------------------------");
+        System.out.println("Test: fail input testing");
+        System.out.println("---------------------------");
+
         int[] res = Puzzle10.run(input);
         int[] expected = new int[]{-1, -1};
 
@@ -44,6 +56,10 @@ public class Puzzle10Testing {
     @Test
     public void testUnexpected() {
         String input = " ";
+
+        System.out.println("---------------------------");
+        System.out.println("Test: random input testing");
+        System.out.println("---------------------------");
 
         int[] res = Puzzle10.run(input);
         int[] expected = new int[]{-1, -1};

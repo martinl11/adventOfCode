@@ -12,7 +12,16 @@ you can find it in [here](https://www.baeldung.com/install-maven-on-windows-linu
 
 If you run the application using command line tool, you can run the following command:
 ```shell script
-mvn install
+mvn clean install
 ```
 
 Or, if you have IDE (such as `Intellij`), you can just run maven build there.  
+
+## How to Read test
+
+For each puzzle, I have included four test cases for the solution.
+
+1. `default test`, with input given by adventOfCode
+2. `simple test`, with simple input from example
+3. `fail test`, with input that lead to a wrong output
+4. `random test`, with random input testing exception handling.
